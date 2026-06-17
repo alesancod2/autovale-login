@@ -1,32 +1,49 @@
 # Auto Vale Prevenções - Página de Login
 
-Página de login customizada para o Clube de Benefícios Auto Vale Prevenções.
+## IMPORTANTE: Substituir Logos
 
-## Como Visualizar
+Os arquivos de logo estão como placeholder. **Substitua pelos arquivos originais:**
 
-- Abra `login-completo.html` diretamente no navegador (self-contained)
-- Ou use a versão modular: `index.html` + `styles.css` + `scripts.js`
+1. `assets/logo-autovale.png` — Logo completa (com texto "AUTOVALE PREVENÇÕES")
+2. `assets/icone-autovale.png` — Ícone (apenas o V entrelaçado)
+
+### Como substituir:
+
+```bash
+# Copie seus arquivos originais para a pasta assets/
+cp /caminho/logo-completa.png assets/logo-autovale.png
+cp /caminho/icone-v.png assets/icone-autovale.png
+```
+
+> **NÃO** recrie, redesenhe, vetorize ou altere as imagens. Use EXATAMENTE os arquivos originais.
+
+## Visualização
+
+Abra `login-completo.html` no navegador (self-contained) ou use `index.html` com os arquivos CSS/JS.
 
 ## Design System
 
 ```css
 :root {
-    --primary-color: #1B5E20;
-    --primary-light: #2E7D32;
-    --secondary-color: #4CAF50;
-    --accent-color: #66BB6A;
+    --primary-color: #2B3990;    /* Azul da marca */
+    --secondary-color: #2DB550;  /* Verde da marca */
+    --accent-color: #5DD97B;     /* Verde claro */
     --background-color: #FFFFFF;
     --text-color: #1A1A2E;
 }
 ```
 
-## Funcionalidades
+## Ajustes permitidos na logo
 
-- Layout split-screen responsivo
-- Validação de e-mail e CPF com formatação automática
-- Toggle de visibilidade de senha
-- Animações e feedback visual
-- Toast notifications
-- Dark mode automático
-- Responsivo: Desktop, Tablet, Mobile, iPhone SE
-- Zero dependências JS externas
+- Redimensionamento proporcional
+- Largura/altura para adaptação ao layout
+- Margens e padding
+- Alinhamento e responsividade
+- No painel escuro: `filter: brightness(0) invert(1)` para versão monocromática
+
+## Ajustes PROIBIDOS na logo
+
+- Alterar cores
+- Recriar em SVG
+- Aplicar efeitos de IA
+- Modificar qualquer elemento gráfico da marca

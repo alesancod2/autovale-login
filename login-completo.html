@@ -12,27 +12,27 @@
     <style>
 /* AUTO VALE PREVENÇÕES - Design System */
 :root {
-    --primary-color: #1B5E20;
-    --primary-light: #2E7D32;
-    --primary-dark: #0D3B13;
-    --secondary-color: #4CAF50;
-    --accent-color: #66BB6A;
-    --accent-light: #A5D6A7;
+    --primary-color: #2B3990;
+    --primary-light: #3D4DA0;
+    --primary-dark: #1E2A6E;
+    --secondary-color: #2DB550;
+    --accent-color: #5DD97B;
+    --accent-light: #A8E6B8;
     --background-color: #FFFFFF;
-    --background-light: #F5F9F5;
-    --surface-color: #FAFFFE;
+    --background-light: #F5F7FA;
+    --surface-color: #FAFBFF;
     --text-color: #1A1A2E;
     --text-secondary: #4A5568;
     --text-muted: #718096;
     --border-color: #E2E8F0;
     --border-focus: var(--primary-color);
-    --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, var(--primary-light) 100%);
-    --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, #2DB550 100%);
+    --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     --gradient-hover: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
     --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-    --shadow-button: 0 4px 14px rgba(27,94,32,0.35);
+    --shadow-button: 0 4px 14px rgba(43,57,144,0.35);
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
@@ -75,7 +75,8 @@ input { font-family:inherit; outline:none; border:none; }
 .branding-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity:0.6; }
 .branding-content { position:relative; z-index:1; text-align:center; color:#FFF; max-width:480px; animation:fadeInUp 0.8s ease-out; }
 .branding-logo { margin-bottom:var(--spacing-xl); }
-.logo-img { width:200px; height:auto; margin:0 auto; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
+.logo-img { width:280px; height:auto; margin:0 auto; object-fit:contain; }
+.logo-branding { filter:brightness(0) invert(1); }
 .branding-title { font-size:var(--font-size-3xl); font-weight:700; margin-bottom:var(--spacing-md); letter-spacing:-0.025em; text-shadow:0 2px 4px rgba(0,0,0,0.2); }
 .branding-subtitle { font-size:var(--font-size-lg); font-weight:300; opacity:0.9; line-height:1.7; margin-bottom:var(--spacing-2xl); }
 .branding-features { display:flex; flex-direction:column; gap:var(--spacing-lg); text-align:left; }
@@ -91,7 +92,7 @@ input { font-family:inherit; outline:none; border:none; }
 .form-panel { width:50%; display:flex; align-items:center; justify-content:center; padding:var(--spacing-xl); background-color:var(--background-color); overflow-y:auto; }
 .form-wrapper { width:100%; max-width:420px; animation:fadeIn 0.6s ease-out; }
 .mobile-logo { display:none; text-align:center; margin-bottom:var(--spacing-xl); }
-.logo-img-mobile { width:160px; height:auto; margin:0 auto; }
+.logo-img-mobile { max-width:240px; width:100%; height:auto; margin:0 auto; object-fit:contain; }
 .form-header { margin-bottom:var(--spacing-2xl); }
 .form-title { font-size:var(--font-size-2xl); font-weight:700; color:var(--text-color); margin-bottom:var(--spacing-sm); letter-spacing:-0.025em; }
 .form-subtitle { font-size:var(--font-size-sm); color:var(--text-muted); line-height:1.5; }
@@ -103,7 +104,7 @@ input { font-family:inherit; outline:none; border:none; }
 .form-input { width:100%; padding:14px 14px 14px 48px; font-size:var(--font-size-base); color:var(--text-color); background-color:var(--background-light); border:2px solid var(--border-color); border-radius:var(--radius-lg); transition:all var(--transition-base); box-shadow:var(--shadow-sm); }
 .form-input::placeholder { color:var(--text-muted); opacity:0.7; }
 .form-input:hover { border-color:var(--accent-light); background-color:var(--background-color); }
-.form-input:focus { border-color:var(--primary-color); background-color:var(--background-color); box-shadow:0 0 0 4px rgba(27,94,32,0.1); }
+.form-input:focus { border-color:var(--primary-color); background-color:var(--background-color); box-shadow:0 0 0 4px rgba(43,57,144,0.1); }
 .input-wrapper:focus-within .input-icon { color:var(--primary-color); }
 .form-input.error { border-color:var(--error-color); background-color:var(--error-bg); }
 .form-input.error:focus { box-shadow:0 0 0 4px rgba(220,38,38,0.1); }
@@ -120,14 +121,14 @@ input { font-family:inherit; outline:none; border:none; }
 .checkbox-custom { width:18px; height:18px; border:2px solid var(--border-color); border-radius:var(--radius-sm); transition:all var(--transition-fast); position:relative; flex-shrink:0; }
 .checkbox-input:checked + .checkbox-custom { background-color:var(--primary-color); border-color:var(--primary-color); }
 .checkbox-input:checked + .checkbox-custom::after { content:''; position:absolute; top:2px; left:5px; width:4px; height:8px; border:solid #FFF; border-width:0 2px 2px 0; transform:rotate(45deg); }
-.checkbox-input:focus + .checkbox-custom { box-shadow:0 0 0 3px rgba(27,94,32,0.15); }
+.checkbox-input:focus + .checkbox-custom { box-shadow:0 0 0 3px rgba(43,57,144,0.15); }
 .checkbox-label { font-size:var(--font-size-sm); color:var(--text-secondary); }
 .forgot-link { font-size:var(--font-size-sm); font-weight:500; color:var(--primary-color); }
 .forgot-link:hover { color:var(--primary-light); text-decoration:underline; }
 /* Button */
 .btn-login { width:100%; padding:16px; font-size:var(--font-size-base); font-weight:600; color:#FFF; background:var(--gradient-button); border:none; border-radius:var(--radius-lg); box-shadow:var(--shadow-button); transition:all var(--transition-base); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:var(--spacing-sm); }
 .btn-login::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition:left 0.5s ease; }
-.btn-login:hover { background:var(--gradient-hover); box-shadow:0 6px 20px rgba(27,94,32,0.45); transform:translateY(-1px); }
+.btn-login:hover { background:var(--gradient-hover); box-shadow:0 6px 20px rgba(43,57,144,0.45); transform:translateY(-1px); }
 .btn-login:hover::before { left:100%; }
 .btn-login:active { transform:translateY(0); box-shadow:var(--shadow-md); }
 .btn-login:disabled { opacity:0.7; cursor:not-allowed; transform:none; }
@@ -164,13 +165,13 @@ input { font-family:inherit; outline:none; border:none; }
 @media(max-width:1024px){ .branding-panel{width:45%;padding:var(--spacing-xl)} .form-panel{width:55%} .branding-title{font-size:var(--font-size-2xl)} .branding-subtitle{font-size:var(--font-size-base)} }
 @media(max-width:768px){ body{overflow-y:auto;height:auto} .login-container{flex-direction:column;min-height:100vh} .branding-panel{display:none} .form-panel{width:100%;min-height:100vh;padding:var(--spacing-xl) var(--spacing-lg);align-items:flex-start;padding-top:60px} .form-wrapper{max-width:100%} .mobile-logo{display:block} .form-title{font-size:var(--font-size-xl)} }
 @media(max-width:480px){ .form-panel{padding:var(--spacing-lg) var(--spacing-md);padding-top:40px} .form-input{padding:12px 12px 12px 44px;font-size:var(--font-size-sm)} .btn-login{padding:14px} .form-options{flex-direction:column;align-items:flex-start;gap:var(--spacing-sm)} .toast{top:12px;right:12px;left:12px;transform:translateY(-100%)} .toast.show{transform:translateY(0)} }
-@media(max-width:375px){ .form-panel{padding:var(--spacing-md);padding-top:30px} .form-header{margin-bottom:var(--spacing-lg)} .logo-img-mobile{width:130px} }
+@media(max-width:375px){ .form-panel{padding:var(--spacing-md);padding-top:30px} .form-header{margin-bottom:var(--spacing-lg)} .logo-img-mobile{max-width:180px} }
 @media(min-width:1440px){ .branding-content{max-width:540px} .form-wrapper{max-width:460px} .branding-title{font-size:2.5rem} }
 @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important} }
 @media(prefers-color-scheme:dark){ :root{--background-color:#0F1419;--background-light:#1A2332;--text-color:#E8EBED;--text-secondary:#A0AEC0;--text-muted:#718096;--border-color:#2D3748} .form-input{color:var(--text-color)} .btn-social{background-color:var(--background-light);color:var(--text-color)} .toast{background-color:#1E2A3A} }
 
 </style>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTE2IDJMNCA3djljMCA4LjMzIDUuMTIgMTYuMDggMTIgMTggNi44OC0xLjkyIDEyLTkuNjcgMTItMThWN0wxNiAyeiIgZmlsbD0iIzFCNUUyMCIvPgogIDxwYXRoIGQ9Ik0xNiA1TDcgOXY3YzAgNi42NyAzLjg0IDEyLjkyIDkgMTQuNCA1LjE2LTEuNDggOS03LjczIDktMTQuNFY5TDE2IDV6IiBmaWxsPSIjMkU3RDMyIi8+CiAgPHBhdGggZD0iTTExIDE2bDMgMyA3LTciIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==">
+    <link rel="icon" type="image/png" href="assets/icone-autovale.png">
 </head>
 <body>
     <div class="login-container">
@@ -179,7 +180,8 @@ input { font-family:inherit; outline:none; border:none; }
             <div class="branding-overlay"></div>
             <div class="branding-content">
                 <div class="branding-logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgODAiIGZpbGw9Im5vbmUiPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDUpIj4KICAgIDxwYXRoIGQ9Ik0zNSA1TDEwIDE1djIwYzAgMTguMzMgMTAuNjcgMzUuNDIgMjUgNDAgMTQuMzMtNC41OCAyNS0yMS42NyAyNS00MFYxNUwzNSA1eiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjIpIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxwYXRoIGQ9Ik0zNSAxMkwxNSAyMHYxNmMwIDE0LjY3IDguNTMgMjguMzMgMjAgMzIgMTEuNDctMy42NyAyMC0xNy4zMyAyMC0zMlYyMEwzNSAxMnoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xNSkiLz4KICAgIDxwYXRoIGQ9Ik0yMiAzOGgyNmwtMy04aC0yMGwtMyA4em0yIDJ2NGgzdi0zaDE0djNoM3YtNGwxLTJIMjNsMSAyeiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogICAgPHBhdGggZD0iTTI4IDMwbDQgNCA4LTgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8L2c+CiAgPHRleHQgeD0iNzUiIHk9IjM1IiBmb250LWZhbWlseT0iSW50ZXIsIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+QVVUTyBWQUxFPC90ZXh0PgogIDx0ZXh0IHg9Ijc1IiB5PSI1OCIgZm9udC1mYW1pbHk9IkludGVyLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjg1KSIgbGV0dGVyLXNwYWNpbmc9IjIiPlBSRVZFTsOHw5VFUzwvdGV4dD4KICA8cmVjdCB4PSI3NSIgeT0iNDAiIHdpZHRoPSI0NSIgaGVpZ2h0PSIyIiByeD0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+Cjwvc3ZnPgo=" alt="Auto Vale Prevenções" class="logo-img">
+                    <!-- Logo original da marca - arquivo fornecido pelo cliente (versão branca/monocromática) -->
+                    <img src="assets/logo-autovale.png" alt="Auto Vale Prevenções" class="logo-img logo-branding">
                 </div>
                 <h1 class="branding-title">Clube de Benefícios</h1>
                 <p class="branding-subtitle">Acesse sua conta e aproveite todas as vantagens exclusivas para associados Auto Vale Prevenções.</p>
@@ -213,7 +215,8 @@ input { font-family:inherit; outline:none; border:none; }
         <div class="form-panel">
             <div class="form-wrapper">
                 <div class="mobile-logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgODAiIGZpbGw9Im5vbmUiPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDUpIj4KICAgIDxwYXRoIGQ9Ik0zNSA1TDEwIDE1djIwYzAgMTguMzMgMTAuNjcgMzUuNDIgMjUgNDAgMTQuMzMtNC41OCAyNS0yMS42NyAyNS00MFYxNUwzNSA1eiIgZmlsbD0iI0U4RjVFOSIgc3Ryb2tlPSIjMUI1RTIwIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxwYXRoIGQ9Ik0zNSAxMkwxNSAyMHYxNmMwIDE0LjY3IDguNTMgMjguMzMgMjAgMzIgMTEuNDctMy42NyAyMC0xNy4zMyAyMC0zMlYyMEwzNSAxMnoiIGZpbGw9IiNDOEU2QzkiLz4KICAgIDxwYXRoIGQ9Ik0yMiAzOGgyNmwtMy04aC0yMGwtMyA4em0yIDJ2NGgzdi0zaDE0djNoM3YtNGwxLTJIMjNsMSAyeiIgZmlsbD0iIzFCNUUyMCIgb3BhY2l0eT0iMC44NSIvPgogICAgPHBhdGggZD0iTTI4IDMwbDQgNCA4LTgiIHN0cm9rZT0iIzFCNUUyMCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgogIDwvZz4KICA8dGV4dCB4PSI3NSIgeT0iMzUiIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxQjVFMjAiPkFVVE8gVkFMRTwvdGV4dD4KICA8dGV4dCB4PSI3NSIgeT0iNTgiIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiMyRTdEMzIiIGxldHRlci1zcGFjaW5nPSIyIj5QUkVWRU7Dh8OVRVM8L3RleHQ+CiAgPHJlY3QgeD0iNzUiIHk9IjQwIiB3aWR0aD0iNDUiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiM0Q0FGNTAiLz4KPC9zdmc+Cg==" alt="Auto Vale Prevenções" class="logo-img-mobile">
+                    <!-- Logo original da marca - arquivo fornecido pelo cliente (versão colorida) -->
+                    <img src="assets/logo-autovale.png" alt="Auto Vale Prevenções" class="logo-img-mobile">
                 </div>
                 <div class="form-header">
                     <h2 class="form-title">Bem-vindo de volta</h2>
