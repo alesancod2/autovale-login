@@ -1,19 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 90" fill="none">
-  <!-- V entrelaçado (símbolo da marca) - versão branca -->
-  <g transform="translate(0, 5)">
-    <!-- V verde claro -->
-    <path d="M10 5 L30 5 L50 55 L70 5 L90 5 L60 75 L40 75 Z" fill="#5DD97B"/>
-    <!-- V azul claro -->
-    <path d="M35 5 L55 5 L75 55 L95 5 L115 5 L85 75 L65 75 Z" fill="rgba(255,255,255,0.85)"/>
-    <!-- Triângulo no cruzamento -->
-    <path d="M50 55 L60 75 L65 75 L55 55 Z" fill="rgba(255,255,255,0.4)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" fill="none">
+  <!-- Símbolo V entrelaçado - versão monocromática branca para fundo escuro -->
+  <g transform="translate(10, 10)">
+    <!-- V branco (esquerda) -->
+    <path d="M0 0 L22 0 L52 80 L82 0 L104 0 L62 100 L42 100 Z" fill="rgba(255,255,255,0.85)"/>
+    <!-- V branco (direita) -->
+    <path d="M40 0 L62 0 L92 80 L122 0 L144 0 L102 100 L82 100 Z" fill="white"/>
+    <!-- Corte transparente no cruzamento inferior -->
+    <path d="M52 80 L62 100 L82 100 L72 80 Z" fill="rgba(43,57,144,0.6)"/>
+    <!-- Triângulo no cruzamento superior -->
+    <path d="M62 0 L82 0 L72 22 L62 22 Z" fill="rgba(43,57,144,0.4)"/>
   </g>
-  <!-- Texto AUTO -->
-  <text x="125" y="38" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="white">AUTO</text>
-  <!-- Texto VALE -->
-  <text x="225" y="38" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#5DD97B">VALE</text>
+  <!-- Texto AUTOVALE -->
+  <text x="168" y="52" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="white">AUTO</text>
+  <text x="280" y="52" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="rgba(255,255,255,0.8)">VALE</text>
   <!-- Texto PREVENÇÕES -->
-  <text x="125" y="60" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" fill="rgba(255,255,255,0.9)" letter-spacing="1">PREVENÇÕES</text>
+  <text x="168" y="78" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="rgba(255,255,255,0.85)" letter-spacing="1">PREVENÇÕES</text>
   <!-- Slogan -->
-  <text x="125" y="78" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" fill="rgba(255,255,255,0.7)" font-style="italic">PROTEÇÃO VEICULAR DE VERDADE!</text>
+  <text x="168" y="100" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="rgba(255,255,255,0.6)" font-style="italic">PROTEÇÃO VEICULAR DE VERDADE!</text>
 </svg>

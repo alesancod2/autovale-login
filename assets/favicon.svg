@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <!-- V verde -->
-  <path d="M3 4 L8 4 L14 20 L20 4 L25 4 L17 28 L11 28 Z" fill="#2DB550"/>
-  <!-- V azul -->
-  <path d="M10 4 L15 4 L21 20 L27 4 L32 4 L24 28 L18 28 Z" fill="#2B3990"/>
-  <!-- Detalhe branco no cruzamento -->
-  <path d="M14 20 L17 28 L18 28 L15 20 Z" fill="#FFFFFF" opacity="0.85"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- V verde (por trás) -->
+  <path d="M2 8 L20 8 L50 82 L80 8 L98 8 L58 98 L42 98 Z" fill="#2DB550"/>
+  <!-- V azul (por cima, deslocado para direita) -->
+  <path d="M22 8 L40 8 L70 82 L98 8 L98 8 L78 98 L62 98 Z" fill="#2B3990"/>
+  <!-- Efeito de cruzamento inferior -->
+  <path d="M50 82 L58 98 L62 98 L55 82 Z" fill="#FFFFFF"/>
 </svg>
