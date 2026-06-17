@@ -64,7 +64,7 @@ input { font-family:inherit; outline:none; border:none; }
 .branding-content { position:relative; z-index:1; text-align:center; color:#FFF; max-width:480px; animation:fadeInUp 0.8s ease-out; }
 .branding-logo { margin-bottom:var(--spacing-xl); }
 .logo-img { width:280px; height:auto; margin:0 auto; object-fit:contain; }
-.logo-branding { filter:brightness(0) invert(1); }
+.logo-branding { filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3)); }
 .branding-title { font-size:var(--font-size-3xl); font-weight:700; margin-bottom:var(--spacing-md); letter-spacing:-0.025em; text-shadow:0 2px 4px rgba(0,0,0,0.2); }
 .branding-subtitle { font-size:var(--font-size-lg); font-weight:300; opacity:0.9; line-height:1.7; margin-bottom:var(--spacing-2xl); }
 .branding-features { display:flex; flex-direction:column; gap:var(--spacing-lg); text-align:left; }
