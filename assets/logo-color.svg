@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <g transform="translate(0, 5)">
+    <path d="M35 5L10 15v20c0 18.33 10.67 35.42 25 40 14.33-4.58 25-21.67 25-40V15L35 5z" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+    <path d="M35 12L15 20v16c0 14.67 8.53 28.33 20 32 11.47-3.67 20-17.33 20-32V20L35 12z" fill="#C8E6C9"/>
+    <path d="M22 38h26l-3-8h-20l-3 8zm2 2v4h3v-3h14v3h3v-4l1-2H23l1 2z" fill="#1B5E20" opacity="0.85"/>
+    <path d="M28 30l4 4 8-8" stroke="#1B5E20" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <text x="75" y="35" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#1B5E20">AUTO VALE</text>
+  <text x="75" y="58" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#2E7D32" letter-spacing="2">PREVENÇÕES</text>
+  <rect x="75" y="40" width="45" height="2" rx="1" fill="#4CAF50"/>
+</svg>

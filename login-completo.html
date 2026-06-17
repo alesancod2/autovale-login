@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Auto Vale Prevenções - Clube de Benefícios - Acesse sua conta">
+    <meta name="theme-color" content="#1B5E20">
+    <title>Login - Clube Auto Vale Prevenções</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+/* AUTO VALE PREVENÇÕES - Design System */
+:root {
+    --primary-color: #1B5E20;
+    --primary-light: #2E7D32;
+    --primary-dark: #0D3B13;
+    --secondary-color: #4CAF50;
+    --accent-color: #66BB6A;
+    --accent-light: #A5D6A7;
+    --background-color: #FFFFFF;
+    --background-light: #F5F9F5;
+    --surface-color: #FAFFFE;
+    --text-color: #1A1A2E;
+    --text-secondary: #4A5568;
+    --text-muted: #718096;
+    --border-color: #E2E8F0;
+    --border-focus: var(--primary-color);
+    --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, var(--primary-light) 100%);
+    --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    --gradient-hover: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    --shadow-button: 0 4px 14px rgba(27,94,32,0.35);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+    --error-color: #DC2626;
+    --error-bg: #FEF2F2;
+    --success-color: #16A34A;
+}
+
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body { font-family:var(--font-family); font-size:var(--font-size-base); line-height:1.6; color:var(--text-color); background-color:var(--background-color); -webkit-font-smoothing:antialiased; overflow:hidden; height:100vh; }
+a { color:var(--primary-color); text-decoration:none; transition:color var(--transition-fast); }
+a:hover { color:var(--primary-light); text-decoration:underline; }
+img { max-width:100%; height:auto; display:block; }
+button { cursor:pointer; border:none; outline:none; font-family:inherit; }
+input { font-family:inherit; outline:none; border:none; }
+.login-container { display:flex; min-height:100vh; width:100%; }
+
+
+/* Branding Panel */
+.branding-panel { position:relative; width:50%; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:var(--spacing-2xl); background:var(--gradient-primary); overflow:hidden; }
+.branding-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity:0.6; }
+.branding-content { position:relative; z-index:1; text-align:center; color:#FFF; max-width:480px; animation:fadeInUp 0.8s ease-out; }
+.branding-logo { margin-bottom:var(--spacing-xl); }
+.logo-img { width:200px; height:auto; margin:0 auto; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
+.branding-title { font-size:var(--font-size-3xl); font-weight:700; margin-bottom:var(--spacing-md); letter-spacing:-0.025em; text-shadow:0 2px 4px rgba(0,0,0,0.2); }
+.branding-subtitle { font-size:var(--font-size-lg); font-weight:300; opacity:0.9; line-height:1.7; margin-bottom:var(--spacing-2xl); }
+.branding-features { display:flex; flex-direction:column; gap:var(--spacing-lg); text-align:left; }
+.feature-item { display:flex; align-items:center; gap:var(--spacing-md); padding:var(--spacing-md); background:rgba(255,255,255,0.1); border-radius:var(--radius-lg); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.15); transition:transform var(--transition-base), background var(--transition-base); }
+.feature-item:hover { transform:translateX(8px); background:rgba(255,255,255,0.15); }
+.feature-icon { display:flex; align-items:center; justify-content:center; width:44px; height:44px; min-width:44px; background:rgba(255,255,255,0.15); border-radius:var(--radius-md); color:var(--accent-color); }
+.feature-item span { font-size:var(--font-size-sm); font-weight:400; opacity:0.95; }
+.branding-footer { position:absolute; bottom:var(--spacing-xl); left:0; right:0; text-align:center; z-index:1; }
+.branding-footer p { color:rgba(255,255,255,0.6); font-size:var(--font-size-xs); }
+
+
+/* Form Panel */
+.form-panel { width:50%; display:flex; align-items:center; justify-content:center; padding:var(--spacing-xl); background-color:var(--background-color); overflow-y:auto; }
+.form-wrapper { width:100%; max-width:420px; animation:fadeIn 0.6s ease-out; }
+.mobile-logo { display:none; text-align:center; margin-bottom:var(--spacing-xl); }
+.logo-img-mobile { width:160px; height:auto; margin:0 auto; }
+.form-header { margin-bottom:var(--spacing-2xl); }
+.form-title { font-size:var(--font-size-2xl); font-weight:700; color:var(--text-color); margin-bottom:var(--spacing-sm); letter-spacing:-0.025em; }
+.form-subtitle { font-size:var(--font-size-sm); color:var(--text-muted); line-height:1.5; }
+.login-form { display:flex; flex-direction:column; gap:var(--spacing-lg); }
+.form-group { display:flex; flex-direction:column; gap:var(--spacing-xs); }
+.form-label { font-size:var(--font-size-sm); font-weight:500; color:var(--text-secondary); }
+.input-wrapper { position:relative; display:flex; align-items:center; }
+.input-icon { position:absolute; left:14px; display:flex; align-items:center; color:var(--text-muted); transition:color var(--transition-fast); pointer-events:none; z-index:1; }
+.form-input { width:100%; padding:14px 14px 14px 48px; font-size:var(--font-size-base); color:var(--text-color); background-color:var(--background-light); border:2px solid var(--border-color); border-radius:var(--radius-lg); transition:all var(--transition-base); box-shadow:var(--shadow-sm); }
+.form-input::placeholder { color:var(--text-muted); opacity:0.7; }
+.form-input:hover { border-color:var(--accent-light); background-color:var(--background-color); }
+.form-input:focus { border-color:var(--primary-color); background-color:var(--background-color); box-shadow:0 0 0 4px rgba(27,94,32,0.1); }
+.input-wrapper:focus-within .input-icon { color:var(--primary-color); }
+.form-input.error { border-color:var(--error-color); background-color:var(--error-bg); }
+.form-input.error:focus { box-shadow:0 0 0 4px rgba(220,38,38,0.1); }
+.toggle-password { position:absolute; right:14px; display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:var(--radius-md); background:transparent; color:var(--text-muted); transition:all var(--transition-fast); }
+.toggle-password:hover { color:var(--primary-color); background:var(--background-light); }
+.error-message { font-size:var(--font-size-xs); color:var(--error-color); min-height:16px; opacity:0; transform:translateY(-4px); transition:all var(--transition-fast); }
+.error-message.visible { opacity:1; transform:translateY(0); }
+
+
+/* Form Options */
+.form-options { display:flex; align-items:center; justify-content:space-between; }
+.checkbox-wrapper { display:flex; align-items:center; gap:var(--spacing-sm); cursor:pointer; user-select:none; }
+.checkbox-input { position:absolute; opacity:0; width:0; height:0; }
+.checkbox-custom { width:18px; height:18px; border:2px solid var(--border-color); border-radius:var(--radius-sm); transition:all var(--transition-fast); position:relative; flex-shrink:0; }
+.checkbox-input:checked + .checkbox-custom { background-color:var(--primary-color); border-color:var(--primary-color); }
+.checkbox-input:checked + .checkbox-custom::after { content:''; position:absolute; top:2px; left:5px; width:4px; height:8px; border:solid #FFF; border-width:0 2px 2px 0; transform:rotate(45deg); }
+.checkbox-input:focus + .checkbox-custom { box-shadow:0 0 0 3px rgba(27,94,32,0.15); }
+.checkbox-label { font-size:var(--font-size-sm); color:var(--text-secondary); }
+.forgot-link { font-size:var(--font-size-sm); font-weight:500; color:var(--primary-color); }
+.forgot-link:hover { color:var(--primary-light); text-decoration:underline; }
+/* Button */
+.btn-login { width:100%; padding:16px; font-size:var(--font-size-base); font-weight:600; color:#FFF; background:var(--gradient-button); border:none; border-radius:var(--radius-lg); box-shadow:var(--shadow-button); transition:all var(--transition-base); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:var(--spacing-sm); }
+.btn-login::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition:left 0.5s ease; }
+.btn-login:hover { background:var(--gradient-hover); box-shadow:0 6px 20px rgba(27,94,32,0.45); transform:translateY(-1px); }
+.btn-login:hover::before { left:100%; }
+.btn-login:active { transform:translateY(0); box-shadow:var(--shadow-md); }
+.btn-login:disabled { opacity:0.7; cursor:not-allowed; transform:none; }
+.btn-loader { display:flex; align-items:center; justify-content:center; }
+.spinner { width:20px; height:20px; border:2px solid rgba(255,255,255,0.3); border-top:2px solid #FFF; border-radius:50%; animation:spin 0.8s linear infinite; }
+/* Divider */
+.divider { display:flex; align-items:center; gap:var(--spacing-md); }
+.divider::before, .divider::after { content:''; flex:1; height:1px; background-color:var(--border-color); }
+.divider-text { font-size:var(--font-size-sm); color:var(--text-muted); }
+/* Social */
+.btn-social { width:100%; padding:14px; font-size:var(--font-size-sm); font-weight:500; color:var(--text-secondary); background-color:var(--background-color); border:2px solid var(--border-color); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; gap:var(--spacing-sm); transition:all var(--transition-base); }
+.btn-social:hover { border-color:var(--secondary-color); background-color:var(--background-light); box-shadow:var(--shadow-sm); }
+.btn-social:active { transform:scale(0.98); }
+/* Signup */
+.signup-link { text-align:center; margin-top:var(--spacing-xl); padding-top:var(--spacing-xl); border-top:1px solid var(--border-color); }
+.signup-link p { font-size:var(--font-size-sm); color:var(--text-muted); }
+.signup-link a { font-weight:600; color:var(--secondary-color); }
+.signup-link a:hover { color:var(--primary-light); }
+
+
+/* Toast */
+.toast { position:fixed; top:24px; right:24px; display:flex; align-items:center; gap:var(--spacing-md); padding:16px 24px; background-color:var(--background-color); border-radius:var(--radius-lg); box-shadow:var(--shadow-xl); border-left:4px solid var(--primary-color); transform:translateX(calc(100% + 24px)); opacity:0; transition:all var(--transition-slow); z-index:1000; }
+.toast.show { transform:translateX(0); opacity:1; }
+.toast.error { border-left-color:var(--error-color); }
+.toast.success { border-left-color:var(--success-color); }
+.toast-message { font-size:var(--font-size-sm); font-weight:500; color:var(--text-color); }
+/* Animations */
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes spin { to{transform:rotate(360deg)} }
+@keyframes shake { 0%,100%{transform:translateX(0)} 10%,30%,50%,70%,90%{transform:translateX(-4px)} 20%,40%,60%,80%{transform:translateX(4px)} }
+.shake { animation:shake 0.5s ease-in-out; }
+/* Responsive */
+@media(max-width:1024px){ .branding-panel{width:45%;padding:var(--spacing-xl)} .form-panel{width:55%} .branding-title{font-size:var(--font-size-2xl)} .branding-subtitle{font-size:var(--font-size-base)} }
+@media(max-width:768px){ body{overflow-y:auto;height:auto} .login-container{flex-direction:column;min-height:100vh} .branding-panel{display:none} .form-panel{width:100%;min-height:100vh;padding:var(--spacing-xl) var(--spacing-lg);align-items:flex-start;padding-top:60px} .form-wrapper{max-width:100%} .mobile-logo{display:block} .form-title{font-size:var(--font-size-xl)} }
+@media(max-width:480px){ .form-panel{padding:var(--spacing-lg) var(--spacing-md);padding-top:40px} .form-input{padding:12px 12px 12px 44px;font-size:var(--font-size-sm)} .btn-login{padding:14px} .form-options{flex-direction:column;align-items:flex-start;gap:var(--spacing-sm)} .toast{top:12px;right:12px;left:12px;transform:translateY(-100%)} .toast.show{transform:translateY(0)} }
+@media(max-width:375px){ .form-panel{padding:var(--spacing-md);padding-top:30px} .form-header{margin-bottom:var(--spacing-lg)} .logo-img-mobile{width:130px} }
+@media(min-width:1440px){ .branding-content{max-width:540px} .form-wrapper{max-width:460px} .branding-title{font-size:2.5rem} }
+@media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important} }
+@media(prefers-color-scheme:dark){ :root{--background-color:#0F1419;--background-light:#1A2332;--text-color:#E8EBED;--text-secondary:#A0AEC0;--text-muted:#718096;--border-color:#2D3748} .form-input{color:var(--text-color)} .btn-social{background-color:var(--background-light);color:var(--text-color)} .toast{background-color:#1E2A3A} }
+
+</style>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTE2IDJMNCA3djljMCA4LjMzIDUuMTIgMTYuMDggMTIgMTggNi44OC0xLjkyIDEyLTkuNjcgMTItMThWN0wxNiAyeiIgZmlsbD0iIzFCNUUyMCIvPgogIDxwYXRoIGQ9Ik0xNiA1TDcgOXY3YzAgNi42NyAzLjg0IDEyLjkyIDkgMTQuNCA1LjE2LTEuNDggOS03LjczIDktMTQuNFY5TDE2IDV6IiBmaWxsPSIjMkU3RDMyIi8+CiAgPHBhdGggZD0iTTExIDE2bDMgMyA3LTciIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Painel Esquerdo - Branding -->
+        <div class="branding-panel">
+            <div class="branding-overlay"></div>
+            <div class="branding-content">
+                <div class="branding-logo">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgODAiIGZpbGw9Im5vbmUiPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDUpIj4KICAgIDxwYXRoIGQ9Ik0zNSA1TDEwIDE1djIwYzAgMTguMzMgMTAuNjcgMzUuNDIgMjUgNDAgMTQuMzMtNC41OCAyNS0yMS42NyAyNS00MFYxNUwzNSA1eiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjIpIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxwYXRoIGQ9Ik0zNSAxMkwxNSAyMHYxNmMwIDE0LjY3IDguNTMgMjguMzMgMjAgMzIgMTEuNDctMy42NyAyMC0xNy4zMyAyMC0zMlYyMEwzNSAxMnoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xNSkiLz4KICAgIDxwYXRoIGQ9Ik0yMiAzOGgyNmwtMy04aC0yMGwtMyA4em0yIDJ2NGgzdi0zaDE0djNoM3YtNGwxLTJIMjNsMSAyeiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogICAgPHBhdGggZD0iTTI4IDMwbDQgNCA4LTgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8L2c+CiAgPHRleHQgeD0iNzUiIHk9IjM1IiBmb250LWZhbWlseT0iSW50ZXIsIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+QVVUTyBWQUxFPC90ZXh0PgogIDx0ZXh0IHg9Ijc1IiB5PSI1OCIgZm9udC1mYW1pbHk9IkludGVyLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjg1KSIgbGV0dGVyLXNwYWNpbmc9IjIiPlBSRVZFTsOHw5VFUzwvdGV4dD4KICA8cmVjdCB4PSI3NSIgeT0iNDAiIHdpZHRoPSI0NSIgaGVpZ2h0PSIyIiByeD0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+Cjwvc3ZnPgo=" alt="Auto Vale Prevenções" class="logo-img">
+                </div>
+                <h1 class="branding-title">Clube de Benefícios</h1>
+                <p class="branding-subtitle">Acesse sua conta e aproveite todas as vantagens exclusivas para associados Auto Vale Prevenções.</p>
+                <div class="branding-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <span>Proteção completa para seu veículo</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <span>Benefícios exclusivos para associados</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                        </div>
+                        <span>Descontos em toda rede credenciada</span>
+                    </div>
+                </div>
+            </div>
+            <div class="branding-footer">
+                <p>&copy; 2024 Auto Vale Prevenções. Todos os direitos reservados.</p>
+            </div>
+        </div>
+
+        <!-- Painel Direito - Formulário de Login -->
+        <div class="form-panel">
+            <div class="form-wrapper">
+                <div class="mobile-logo">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgODAiIGZpbGw9Im5vbmUiPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDUpIj4KICAgIDxwYXRoIGQ9Ik0zNSA1TDEwIDE1djIwYzAgMTguMzMgMTAuNjcgMzUuNDIgMjUgNDAgMTQuMzMtNC41OCAyNS0yMS42NyAyNS00MFYxNUwzNSA1eiIgZmlsbD0iI0U4RjVFOSIgc3Ryb2tlPSIjMUI1RTIwIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxwYXRoIGQ9Ik0zNSAxMkwxNSAyMHYxNmMwIDE0LjY3IDguNTMgMjguMzMgMjAgMzIgMTEuNDctMy42NyAyMC0xNy4zMyAyMC0zMlYyMEwzNSAxMnoiIGZpbGw9IiNDOEU2QzkiLz4KICAgIDxwYXRoIGQ9Ik0yMiAzOGgyNmwtMy04aC0yMGwtMyA4em0yIDJ2NGgzdi0zaDE0djNoM3YtNGwxLTJIMjNsMSAyeiIgZmlsbD0iIzFCNUUyMCIgb3BhY2l0eT0iMC44NSIvPgogICAgPHBhdGggZD0iTTI4IDMwbDQgNCA4LTgiIHN0cm9rZT0iIzFCNUUyMCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgogIDwvZz4KICA8dGV4dCB4PSI3NSIgeT0iMzUiIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxQjVFMjAiPkFVVE8gVkFMRTwvdGV4dD4KICA8dGV4dCB4PSI3NSIgeT0iNTgiIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiMyRTdEMzIiIGxldHRlci1zcGFjaW5nPSIyIj5QUkVWRU7Dh8OVRVM8L3RleHQ+CiAgPHJlY3QgeD0iNzUiIHk9IjQwIiB3aWR0aD0iNDUiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiM0Q0FGNTAiLz4KPC9zdmc+Cg==" alt="Auto Vale Prevenções" class="logo-img-mobile">
+                </div>
+                <div class="form-header">
+                    <h2 class="form-title">Bem-vindo de volta</h2>
+                    <p class="form-subtitle">Digite suas credenciais para acessar sua conta</p>
+                </div>
+                <form id="loginForm" class="login-form" novalidate>
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-mail ou CPF</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </div>
+                            <input type="text" id="email" name="email" class="form-input" placeholder="seu@email.com ou 000.000.000-00" autocomplete="username" required>
+                        </div>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Senha</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            </div>
+                            <input type="password" id="password" name="password" class="form-input" placeholder="Digite sua senha" autocomplete="current-password" required>
+                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar senha">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-off-icon" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                            </button>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="remember" name="remember" class="checkbox-input">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Lembrar-me</span>
+                        </label>
+                        <a href="#" class="forgot-link">Esqueci minha senha</a>
+                    </div>
+                    <button type="submit" class="btn-login" id="btnLogin">
+                        <span class="btn-text">Entrar</span>
+                        <div class="btn-loader" style="display:none;">
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                    <div class="divider">
+                        <span class="divider-text">ou</span>
+                    </div>
+                    <button type="button" class="btn-social btn-google">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        <span>Continuar com Google</span>
+                    </button>
+                </form>
+                <div class="signup-link">
+                    <p>Não tem uma conta? <a href="#">Cadastre-se</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast" id="toast">
+        <div class="toast-icon"></div>
+        <span class="toast-message"></span>
+    </div>
+    <script>
+/* ============================================
+   AUTO VALE PREVENÇÕES - LOGIN PAGE
+   JavaScript - Validações e Interações
+   ============================================ */
+(function () {
+    'use strict';
+    var form = document.getElementById('loginForm');
+    var emailInput = document.getElementById('email');
+    var passwordInput = document.getElementById('password');
+    var emailError = document.getElementById('emailError');
+    var passwordError = document.getElementById('passwordError');
+    var togglePasswordBtn = document.getElementById('togglePassword');
+    var btnLogin = document.getElementById('btnLogin');
+    var btnText = btnLogin.querySelector('.btn-text');
+    var btnLoader = btnLogin.querySelector('.btn-loader');
+    var toast = document.getElementById('toast');
+
+    function isValidEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+    function isValidCPF(cpf) { return cpf.replace(/\D/g, '').length === 11; }
+    function formatCPF(value) {
+        var n = value.replace(/\D/g, '');
+        if (n.length <= 3) return n;
+        if (n.length <= 6) return n.slice(0,3) + '.' + n.slice(3);
+        if (n.length <= 9) return n.slice(0,3) + '.' + n.slice(3,6) + '.' + n.slice(6);
+        return n.slice(0,3) + '.' + n.slice(3,6) + '.' + n.slice(6,9) + '-' + n.slice(9,11);
+    }
+    function isCPFInput(value) { return /^\d/.test(value) && !value.includes('@') && value.replace(/\D/g,'').length <= 11; }
+    function showError(el, msg) { el.textContent = msg; el.classList.add('visible'); }
+    function hideError(el) { el.textContent = ''; el.classList.remove('visible'); }
+    function showToast(message, type) {
+        toast.querySelector('.toast-message').textContent = message;
+        toast.className = 'toast ' + type;
+        requestAnimationFrame(function() { toast.classList.add('show'); });
+        setTimeout(function() { toast.classList.remove('show'); }, 4000);
+    }
+    function shakeElement(el) {
+        el.classList.add('shake');
+        el.addEventListener('animationend', function() { el.classList.remove('shake'); }, { once: true });
+    }
+
+    togglePasswordBtn.addEventListener('click', function () {
+        var isPass = passwordInput.type === 'password';
+        passwordInput.type = isPass ? 'text' : 'password';
+        this.querySelector('.eye-icon').style.display = isPass ? 'none' : 'block';
+        this.querySelector('.eye-off-icon').style.display = isPass ? 'block' : 'none';
+        this.setAttribute('aria-label', isPass ? 'Ocultar senha' : 'Mostrar senha');
+    });
+
+    emailInput.addEventListener('input', function (e) {
+        if (isCPFInput(e.target.value)) {
+            var pos = e.target.selectionStart;
+            var formatted = formatCPF(e.target.value);
+            var diff = formatted.length - e.target.value.length;
+            e.target.value = formatted;
+            e.target.setSelectionRange(pos + diff, pos + diff);
+        }
+        if (emailError.classList.contains('visible')) { hideError(emailError); this.classList.remove('error'); }
+    });
+
+    passwordInput.addEventListener('input', function () {
+        if (passwordError.classList.contains('visible')) { hideError(passwordError); this.classList.remove('error'); }
+    });
+
+    emailInput.addEventListener('blur', function () {
+        var v = this.value.trim();
+        if (v && !isValidEmail(v) && !isValidCPF(v)) { showError(emailError, 'Digite um e-mail válido ou CPF com 11 dígitos'); this.classList.add('error'); }
+    });
+
+    passwordInput.addEventListener('blur', function () {
+        if (this.value && this.value.length < 6) { showError(passwordError, 'A senha deve ter no mínimo 6 caracteres'); this.classList.add('error'); }
+    });
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        hideError(emailError); hideError(passwordError);
+        emailInput.classList.remove('error'); passwordInput.classList.remove('error');
+        var email = emailInput.value.trim(), password = passwordInput.value, hasError = false;
+
+        if (!email) { showError(emailError, 'Campo obrigatório'); emailInput.classList.add('error'); hasError = true; }
+        else if (!isValidEmail(email) && !isValidCPF(email)) { showError(emailError, 'Digite um e-mail válido ou CPF com 11 dígitos'); emailInput.classList.add('error'); hasError = true; }
+        if (!password) { showError(passwordError, 'Campo obrigatório'); passwordInput.classList.add('error'); hasError = true; }
+        else if (password.length < 6) { showError(passwordError, 'A senha deve ter no mínimo 6 caracteres'); passwordInput.classList.add('error'); hasError = true; }
+        if (hasError) { shakeElement(form); return; }
+
+        setLoading(true);
+        setTimeout(function() {
+            if (email && password.length >= 6) {
+                showToast('Login realizado com sucesso! Redirecionando...', 'success');
+            } else {
+                showToast('Credenciais inválidas', 'error');
+                shakeElement(form);
+            }
+            setLoading(false);
+        }, 1800);
+    });
+
+    function setLoading(loading) {
+        btnLogin.disabled = loading;
+        btnText.style.display = loading ? 'none' : 'inline';
+        btnLoader.style.display = loading ? 'flex' : 'none';
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && document.activeElement === emailInput) { e.preventDefault(); passwordInput.focus(); }
+    });
+
+    var formGroups = document.querySelectorAll('.form-group, .form-options, .btn-login, .divider, .btn-social, .signup-link');
+    formGroups.forEach(function(group, index) {
+        group.style.opacity = '0';
+        group.style.transform = 'translateY(10px)';
+        group.style.transition = 'opacity 0.4s ease ' + (index * 0.08) + 's, transform 0.4s ease ' + (index * 0.08) + 's';
+        requestAnimationFrame(function() { group.style.opacity = '1'; group.style.transform = 'translateY(0)'; });
+    });
+})();
+
+</script>
+</body>
+</html>
