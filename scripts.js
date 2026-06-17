@@ -112,3 +112,36 @@
         requestAnimationFrame(function() { group.style.opacity = '1'; group.style.transform = 'translateY(0)'; });
     });
 })();
+
+
+
+/* ===== Theme Toggle (Dark/Light Mode) ===== */
+(function() {
+    var toggle = document.getElementById('themeToggle');
+    var html = document.documentElement;
+    var STORAGE_KEY = 'autovale-theme';
+
+    // Carregar tema salvo ou usar preferência do sistema
+    function loadTheme() {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'dark') {
+            html.classList.add('dark-mode');
+        } else if (saved === 'light') {
+            html.classList.remove('dark-mode');
+        } else {
+            // Sem preferência salva: usar preferência do sistema
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                html.classList.add('dark-mode');
+            }
+        }
+    }
+
+    // Toggle
+    toggle.addEventListener('click', function() {
+        html.classList.toggle('dark-mode');
+        var isDark = html.classList.contains('dark-mode');
+        localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light');
+    });
+
+    loadTheme();
+})();
