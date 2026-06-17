@@ -71,21 +71,21 @@ input { font-family:inherit; outline:none; border:none; }
 
 
 /* Branding Panel */
-.branding-panel { position:relative; width:50%; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:var(--spacing-2xl); background:var(--gradient-primary); overflow:hidden; }
-.branding-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity:0.6; }
-.branding-content { position:relative; z-index:1; text-align:center; color:#FFF; max-width:480px; animation:fadeInUp 0.8s ease-out; }
+.branding-panel { position:relative; width:50%; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:var(--spacing-2xl); background:#FFFFFF; overflow:hidden; }
+.branding-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232B3990' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity:0.6; }
+.branding-content { position:relative; z-index:1; text-align:center; color:var(--text-color); max-width:480px; animation:fadeInUp 0.8s ease-out; }
 .branding-logo { margin-bottom:var(--spacing-xl); }
 .logo-img { width:280px; height:auto; margin:0 auto; object-fit:contain; }
-.logo-branding { filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3)); }
+.logo-branding { filter:none; }
 .branding-title { font-size:var(--font-size-3xl); font-weight:700; margin-bottom:var(--spacing-md); letter-spacing:-0.025em; text-shadow:0 2px 4px rgba(0,0,0,0.2); }
 .branding-subtitle { font-size:var(--font-size-lg); font-weight:300; opacity:0.9; line-height:1.7; margin-bottom:var(--spacing-2xl); }
 .branding-features { display:flex; flex-direction:column; gap:var(--spacing-lg); text-align:left; }
-.feature-item { display:flex; align-items:center; gap:var(--spacing-md); padding:var(--spacing-md); background:rgba(255,255,255,0.1); border-radius:var(--radius-lg); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.15); transition:transform var(--transition-base), background var(--transition-base); }
-.feature-item:hover { transform:translateX(8px); background:rgba(255,255,255,0.15); }
-.feature-icon { display:flex; align-items:center; justify-content:center; width:44px; height:44px; min-width:44px; background:rgba(255,255,255,0.15); border-radius:var(--radius-md); color:var(--accent-color); }
+.feature-item { display:flex; align-items:center; gap:var(--spacing-md); padding:var(--spacing-md); background:rgba(43,57,144,0.05); border-radius:var(--radius-lg); backdrop-filter:blur(10px); border:1px solid rgba(43,57,144,0.1); transition:transform var(--transition-base), background var(--transition-base); }
+.feature-item:hover { transform:translateX(8px); background:rgba(43,57,144,0.08); }
+.feature-icon { display:flex; align-items:center; justify-content:center; width:44px; height:44px; min-width:44px; background:rgba(43,57,144,0.1); border-radius:var(--radius-md); color:var(--primary-color); }
 .feature-item span { font-size:var(--font-size-sm); font-weight:400; opacity:0.95; }
 .branding-footer { position:absolute; bottom:var(--spacing-xl); left:0; right:0; text-align:center; z-index:1; }
-.branding-footer p { color:rgba(255,255,255,0.6); font-size:var(--font-size-xs); }
+.branding-footer p { color:var(--text-muted); font-size:var(--font-size-xs); }
 
 
 /* Form Panel */
@@ -186,6 +186,15 @@ html.dark-mode .toast { background-color:var(--surface-color); }
 html.dark-mode .theme-toggle .icon-moon { display:block; }
 html.dark-mode .theme-toggle .icon-sun { display:none; }
 html.dark-mode .theme-toggle { background:var(--surface-color); border-color:var(--border-color); color:var(--text-muted); }
+
+/* Dark mode: painel branding com gradiente escuro e texto branco */
+html.dark-mode .branding-panel { background:var(--gradient-primary); }
+html.dark-mode .branding-content { color:#FFFFFF; }
+html.dark-mode .branding-footer p { color:rgba(255,255,255,0.6); }
+html.dark-mode .feature-item { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.15); }
+html.dark-mode .feature-item:hover { background:rgba(255,255,255,0.15); }
+html.dark-mode .feature-icon { background:rgba(255,255,255,0.15); color:var(--accent-color); }
+html.dark-mode .branding-overlay { background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
 
 /* Logo monocromática branca no modo escuro - APENAS mudança de cor via CSS filter */
 html.dark-mode .logo-img-mobile { filter:brightness(0) invert(1); }
